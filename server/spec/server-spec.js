@@ -29,7 +29,6 @@ describe("Persistent Node Chat Server", function() {
 
   it("Should insert posted messages to the DB", function(done) {
     // Post the user to the chat server.
-      console.log('in insert posted function');
 
     request({ method: "POST",
               uri: "http://127.0.0.1:3000/classes/users",
