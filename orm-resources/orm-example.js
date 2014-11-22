@@ -5,7 +5,7 @@
 
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize("chat", "root", "");
-sequelize.query('INSERT INTO messages (name, text, room) VALUES (:name, :text, :room);',{name: "beth", text: "hi caro!", room: "8th"}).success(function(data){
+sequelize.query('INSERT INTO messages (name, text, room) VALUES (:name, :text, :room);',null, {raw: true},{name: "beth", text: "hi caro!", room: "8th"}).success(function(data){
   console.log("SUCCESS");
   console.log(data);
 }).error(function(err){

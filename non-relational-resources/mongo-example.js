@@ -16,6 +16,8 @@ client.open(function(err, p_client) {
 
   // Create a collection, if it doesn't exist already:
   client.createCollection("demo-collection", function(err, collection) {
+     console.log(err);
+    // if (err) throw err;
     console.log("Created collection");
 
     // Here's the document we want to insert:
