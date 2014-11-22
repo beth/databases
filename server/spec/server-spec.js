@@ -37,7 +37,6 @@ describe("Persistent Node Chat Server", function() {
     },
     function () {
       // Post a message to the node chat server:
-      console.log('here level 2')
       request({ method: "POST",
               uri: "http://127.0.0.1:3000/classes/messages",
               json: {
@@ -46,7 +45,6 @@ describe("Persistent Node Chat Server", function() {
                 room: "Hello"
               }
       }, function () {
-        console.log('here level 3')
         // Now if we look in the database, we should find the
         // posted message there.
 
@@ -56,8 +54,6 @@ describe("Persistent Node Chat Server", function() {
         var queryArgs = [];
 
         dbConnection.query(queryString, queryArgs, function(err, results) {
-          // Should have one result:
-          console.log('level 4')
           expect(results.length).to.equal(1);
 
           // TODO: If you don't have a column named text, change this test.

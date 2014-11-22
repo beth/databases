@@ -16,9 +16,7 @@ module.exports = {
       data = data || '';
       var post  = data;
       var query = db.query('INSERT INTO messages SET ?', post, function(err, result) {
-        console.log(post.name);
         db.query('SELECT COUNT(name) FROM users where name = \'' + post.name + '\'', function(err,result){
-          console.log(result[0]['COUNT(name)']);
           if (result[0]['COUNT(name)'] === 0) {
             var query = db.query('INSERT INTO users SET ?',{name: post.name}, function(err, result) {
               if (err) throw err;
@@ -42,11 +40,7 @@ module.exports = {
     post: function (data, callback) {
       data = data || '';
       var post  = data;
-        console.log('in post users');
-
       var query = db.query('INSERT INTO users SET ?', post, function(err, result) {
-        console.log('in users');
-
         if (err) throw err;
         callback(result);
       });
